@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.UUID;
+
 
 @Service
 public class WishlistService {
@@ -15,7 +15,7 @@ public class WishlistService {
     WishlistRepository wishRepository;
 
     //Função de pesquisar um wish
-    public WishlistModel findById(UUID id){
+    public WishlistModel findById(Long id){
         Optional<WishlistModel> wish = this.wishRepository.findById(id);
         return wish.orElseThrow(() -> new RuntimeException("Wish not found"));
     }
@@ -45,7 +45,7 @@ public class WishlistService {
     }
 
     //Usar com delete
-    public void deleteWish(UUID id){
+    public void deleteWish(Long id){
         findById(id);
         try {
             this.wishRepository.deleteById(id);

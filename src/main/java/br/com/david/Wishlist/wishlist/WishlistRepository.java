@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 import java.util.UUID;
 
 @Repository
-public interface WishlistRepository extends JpaRepository<WishlistModel, UUID> {
+public interface WishlistRepository extends JpaRepository<WishlistModel, Long> {
 
 
 }

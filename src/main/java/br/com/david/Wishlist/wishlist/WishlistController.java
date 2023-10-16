@@ -6,7 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.UUID;
+
 
 @RestController
 @RequestMapping("/wish")
@@ -24,7 +24,7 @@ public class WishlistController {
 
     //Busca todos os desejos
     @GetMapping("/{id}")
-    public ResponseEntity<WishlistModel> findOneWish(@PathVariable  UUID id){
+    public ResponseEntity<WishlistModel> findOneWish(@PathVariable  Long id){
         WishlistModel oneWish = this.wishlistService.findById(id);
         if (oneWish.equals(null)){
             return ResponseEntity.notFound().build();
@@ -40,7 +40,7 @@ public class WishlistController {
 
     //Deleta um desejo
     @DeleteMapping("/{id}")
-    public ResponseEntity deleteWish(@PathVariable  UUID id){
+    public ResponseEntity deleteWish(@PathVariable  Long id){
         //Arrumar essa classe
         if(this.wishlistService.findById(id) != null){
             this.wishlistService.deleteWish(id);
