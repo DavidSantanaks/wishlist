@@ -34,8 +34,6 @@ public class WishlistService {
         return allWish;
     }
 
-
-
     //Usar com o PUT
     @Transactional
     public WishlistModel updateWish(WishlistModel model){

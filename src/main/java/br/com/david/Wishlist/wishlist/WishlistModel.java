@@ -1,5 +1,7 @@
 package br.com.david.Wishlist.wishlist;
 
+import br.com.david.Wishlist.user.UserModel;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -15,5 +17,10 @@ public class WishlistModel {
     private String name;
     private String description;
     private Double price;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    @JsonIgnore
+    private UserModel user;
 
 }
